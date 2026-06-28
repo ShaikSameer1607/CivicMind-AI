@@ -3,13 +3,13 @@ import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPasswor
 import { getFirestore, collection, doc, setDoc, getDoc, getDocs, onSnapshot, query, where, orderBy, addDoc, serverTimestamp, updateDoc, limit, arrayUnion } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDhyC3Q1VWzfQX4NhimV1iCAuc-1soYSoY",
-  authDomain: "civicmindai-e5397.firebaseapp.com",
-  projectId: "civicmindai-e5397",
-  storageBucket: "civicmindai-e5397.firebasestorage.app",
-  messagingSenderId: "726082983379",
-  appId: "1:726082983379:web:faeeb686fdf59fb9ff4b26",
-  measurementId: "G-4425EZB46V"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || "G-4425EZB46V" // Optional fallback
 };
 
 // Initialize Firebase

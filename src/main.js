@@ -14,6 +14,21 @@ import { captureFullLocation, EMPTY_LOCATION, reverseGeocode } from './services/
 // Client-side SPA with hash routing & Firebase Backend
 // ============================================================
 
+// --- Startup Diagnostics (Development Only) ---
+if (import.meta.env.DEV) {
+  console.log('--- CivicMind AI Environment Diagnostics ---');
+  const varsToCheck = [
+    'VITE_FIREBASE_API_KEY', 'VITE_FIREBASE_AUTH_DOMAIN', 'VITE_FIREBASE_PROJECT_ID',
+    'VITE_FIREBASE_STORAGE_BUCKET', 'VITE_FIREBASE_MESSAGING_SENDER_ID', 'VITE_FIREBASE_APP_ID',
+    'VITE_SUPABASE_URL', 'VITE_SUPABASE_ANON_KEY', 'VITE_GEMINI_API_KEY', 'VITE_GROQ_API_KEY',
+    'VITE_DEFAULT_AI_PROVIDER'
+  ];
+  varsToCheck.forEach(v => {
+    console.log(`[ENV] ${v}: ${import.meta.env[v] ? '✅ Present' : '❌ Missing'}`);
+  });
+  console.log('--------------------------------------------');
+}
+
 const app = document.getElementById('app');
 
 // Global State
