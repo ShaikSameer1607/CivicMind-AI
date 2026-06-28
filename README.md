@@ -119,14 +119,14 @@ The optimized production files will be generated in the `dist/` directory. Deplo
 civicmind-ai/
 +-- public/                 # Static assets
 +-- src/
-¦   +-- services/
-¦   ¦   +-- agents/         # 7-Agent Pipeline & Multi-LLM Orchestrator
-¦   ¦   +-- auth.js         # Firebase Auth integration
-¦   ¦   +-- issues.js       # Firestore CRUD & Rules
-¦   ¦   +-- storage.js      # Supabase Uploads
-¦   ¦   +-- mapController.js# Leaflet map logic
-¦   +-- main.js             # Core Application, Router, & UI Rendering
-¦   +-- style.css           # Premium Google Stitch styling
+Â¦   +-- services/
+Â¦   Â¦   +-- agents/         # 7-Agent Pipeline & Multi-LLM Orchestrator
+Â¦   Â¦   +-- auth.js         # Firebase Auth integration
+Â¦   Â¦   +-- issues.js       # Firestore CRUD & Rules
+Â¦   Â¦   +-- storage.js      # Supabase Uploads
+Â¦   Â¦   +-- mapController.js# Leaflet map logic
+Â¦   +-- main.js             # Core Application, Router, & UI Rendering
+Â¦   +-- style.css           # Premium Google Stitch styling
 +-- index.html              # Entry point
 +-- package.json            # Dependencies & Scripts
 +-- firestore.rules         # Security Rules
@@ -161,7 +161,7 @@ Judges and reviewers can immediately access the platform using the pre-configure
 
 ---
 
-## Screenshots
+## Screenshots:-
 
 *(Placeholders for GitHub Repository)*
 
@@ -184,4 +184,4 @@ Judges and reviewers can immediately access the platform using the pre-configure
 ---
 
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. 
