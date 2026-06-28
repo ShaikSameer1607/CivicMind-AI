@@ -3,7 +3,7 @@ import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPasswor
 import { getFirestore, collection, doc, setDoc, getDoc, getDocs, onSnapshot, query, where, orderBy, addDoc, serverTimestamp, updateDoc, limit, arrayUnion } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "****",
+  apiKey: "AIzaSyDhyC3Q1VWzfQX4NhimV1iCAuc-1soYSoY",
   authDomain: "civicmindai-e5397.firebaseapp.com",
   projectId: "civicmindai-e5397",
   storageBucket: "civicmindai-e5397.firebasestorage.app",
