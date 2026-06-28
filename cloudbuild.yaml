@@ -1,4 +1,15 @@
 steps:
+  - name: "ubuntu"
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        echo "===== DEBUG ====="
+        echo "_VITE_FIREBASE_API_KEY=$_VITE_FIREBASE_API_KEY"
+        echo "_VITE_SUPABASE_URL=$_VITE_SUPABASE_URL"
+        echo "_VITE_GROQ_API_KEY=$_VITE_GROQ_API_KEY"
+        echo "_VITE_DEFAULT_AI_PROVIDER=$_VITE_DEFAULT_AI_PROVIDER"
+
   # Build the container image
   - name: "gcr.io/cloud-builders/docker"
     args:
