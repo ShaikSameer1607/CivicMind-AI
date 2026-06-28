@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Portal — CivicMind AI</title>
+  <meta name="description" content="Admin controls, user management, and system settings with premium UI." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/design-system.css" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="glass-card" style="margin-bottom: var(--spacing-lg);">
+      <h1 class="headline-md" style="color: var(--color-primary);">Admin Portal</h1>
+    </header>
+    <section class="glass-card" style="margin-bottom: var(--spacing-lg);">
+      <h2 class="headline-sm">User Management</h2>
+      <div class="grid-2" style="gap: var(--spacing-sm);">
+        <div class="glass-card" style="padding: var(--spacing-md);">
+          <p class="label-sm">Total Users</p>
+          <p class="headline-lg" style="color: var(--color-primary);">{{firestore.admin.total_users}}</p>
+        </div>
+        <div class="glass-card" style="padding: var(--spacing-md);">
+          <p class="label-sm">Active Sessions</p>
+          <p class="headline-lg" style="color: var(--color-primary);">{{firestore.admin.active_sessions}}</p>
+        </div>
+      </div>
+      <button class="btn-primary" style="margin-top: var(--spacing-md);">Refresh Data</button>
+    </section>
+    <section class="glass-card" style="margin-bottom: var(--spacing-lg);">
+      <h2 class="headline-sm">System Settings</h2>
+      <ul class="list-none" style="padding-left:0;">
+        <li><label class="label-sm"><input type="checkbox" /> Enable Maintenance Mode</label></li>
+        <li><label class="label-sm"><input type="checkbox" /> Enable Debug Logging</label></li>
+        <li><label class="label-sm"><input type="checkbox" /> Restrict API Access</label></li>
+      </ul>
+    </section>
+    <nav class="bottom-nav" style="margin-top: var(--spacing-lg);">
+      <a href="/index.html">Dashboard</a>
+      <a href="/src/report.html">Report & Verify</a>
+      <a href="/src/intelligence.html">Intelligence Suite</a>
+      <a href="/src/agent-command.html">Agent Command Center</a>
+      <a href="/src/admin.html" class="active">Admin Portal</a>
+    </nav>
+  </div>
+</body>
+</html>

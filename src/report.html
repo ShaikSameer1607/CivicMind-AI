@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Report & Verify — CivicMind AI</title>
+  <meta name="description" content="Create and verify reports with premium AI assistance and glass‑morphism UI." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/design-system.css" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="glass-card" style="margin-bottom: var(--spacing-lg);">
+      <h1 class="headline-md" style="color: var(--color-primary);">New Report & Verify</h1>
+    </header>
+    <!-- Stepper -->
+    <div class="stepper">
+      <div class="step active">Evidence</div>
+      <div class="step">Details</div>
+      <div class="step">AI Analysis</div>
+      <div class="step">Review</div>
+    </div>
+    <!-- Evidence Upload -->
+    <section class="glass-card" style="margin-bottom: var(--spacing-lg);">
+      <h2 class="headline-md">Evidence Upload</h2>
+      <div class="chart-placeholder" style="height:150px; display:flex; align-items:center; justify-content:center; color:var(--color-on-surface-variant);">
+        Drag &amp; drop files, or click to select (Camera, Gallery, Voice Memo)
+      </div>
+      <p class="label-sm" style="margin-top: var(--spacing-sm); color: var(--color-outline);">Processing preview will appear here…</p>
+    </section>
+    <!-- AI Analysis Panel -->
+    <section class="glass-card" style="margin-bottom: var(--spacing-lg);">
+      <h2 class="headline-md">AI Core Insights</h2>
+      <div class="grid-2" style="gap: var(--spacing-sm);">
+        <div class="chart-placeholder" style="height:120px;">
+          <p class="label-sm" style="text-align:center; margin-top:40px; color:var(--color-on-surface-variant);">Severity Gauge ({{firestore.incidents.severity}})</p>
+        </div>
+        <div class="chart-placeholder" style="height:120px;">
+          <p class="label-sm" style="text-align:center; margin-top:40px; color:var(--color-on-surface-variant);">Trust Score ({{firestore.incidents.trust_score}}%)</p>
+        </div>
+      </div>
+      <p class="label-sm" style="margin-top: var(--spacing-sm); color: var(--color-on-surface);">AI Reasoning: <span style="color: var(--color-primary);">{{firestore.incidents.ai_reasoning}}</span></p>
+    </section>
+    <!-- Submit Button -->
+    <div style="text-align:center; margin-top: var(--spacing-lg);">
+      <button class="btn-primary">Submit for Analysis</button>
+    </div>
+    <nav class="bottom-nav" style="margin-top: var(--spacing-lg);">
+      <a href="/index.html">Dashboard</a>
+      <a href="#" class="active">Report & Verify</a>
+      <a href="#">Intelligence Suite</a>
+      <a href="#">Admin Portal</a>
+    </nav>
+  </div>
+</body>
+</html>

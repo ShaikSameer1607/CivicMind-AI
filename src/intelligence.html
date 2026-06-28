@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intelligence Suite — CivicMind AI</title>
+  <meta name="description" content="Advanced analytics and AI insights dashboard with premium UI." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/design-system.css" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="glass-card" style="margin-bottom: var(--spacing-lg);">
+      <h1 class="headline-md" style="color: var(--color-primary);">Intelligence Suite</h1>
+    </header>
+    <section class="glass-card" style="margin-bottom: var(--spacing-lg);">
+      <h2 class="headline-sm">Key Metrics</h2>
+      <div class="grid-2" style="gap: var(--spacing-sm);">
+        <div class="glass-card" style="padding: var(--spacing-md);">
+          <p class="label-sm">Active Users</p>
+          <p class="headline-lg" style="color: var(--color-primary);">{{firestore.metrics.active_users}}</p>
+        </div>
+        <div class="glass-card" style="padding: var(--spacing-md);">
+          <p class="label-sm">Incidents Today</p>
+          <p class="headline-lg" style="color: var(--color-primary);">{{firestore.metrics.incidents_today}}</p>
+        </div>
+        <div class="glass-card" style="padding: var(--spacing-md);">
+          <p class="label-sm">AI Confidence</p>
+          <p class="headline-lg" style="color: var(--color-primary);">{{firestore.metrics.ai_confidence}}%</p>
+        </div>
+        <div class="glass-card" style="padding: var(--spacing-md);">
+          <p class="label-sm">System Health</p>
+          <p class="headline-lg" style="color: var(--color-primary);">{{firestore.metrics.system_health}}</p>
+        </div>
+      </div>
+    </section>
+    <section class="glass-card" style="margin-bottom: var(--spacing-lg);">
+      <h2 class="headline-sm">Trends & Charts</h2>
+      <div class="grid-2" style="gap: var(--spacing-sm);">
+        <div class="chart-placeholder" style="height:200px; display:flex; align-items:center; justify-content:center; color:var(--color-on-surface-variant);">
+          Line Chart Placeholder
+        </div>
+        <div class="chart-placeholder" style="height:200px; display:flex; align-items:center; justify-content:center; color:var(--color-on-surface-variant);">
+          Bar Chart Placeholder
+        </div>
+      </div>
+    </section>
+    <nav class="bottom-nav" style="margin-top: var(--spacing-lg);">
+      <a href="/index.html">Dashboard</a>
+      <a href="/src/report.html">Report & Verify</a>
+      <a href="/src/intelligence.html" class="active">Intelligence Suite</a>
+      <a href="/src/agent-command.html">Agent Command Center</a>
+      <a href="/src/admin.html">Admin Portal</a>
+    </nav>
+  </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent Command Center — CivicMind AI</title>
+  <meta name="description" content="Central hub for AI agents, command execution, and workflow orchestration with premium UI." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/design-system.css" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="glass-card" style="margin-bottom: var(--spacing-lg);">
+      <h1 class="headline-md" style="color: var(--color-primary);">Agent Command Center</h1>
+    </header>
+    <section class="glass-card" style="margin-bottom: var(--spacing-lg);">
+      <h2 class="headline-sm">Active Agents</h2>
+      <ul class="list-none" style="padding-left:0;">
+        <li class="glass-card" style="padding: var(--spacing-sm); margin-bottom: var(--spacing-xs);">Agent A – <span class="label-sm">Idle</span></li>
+        <li class="glass-card" style="padding: var(--spacing-sm); margin-bottom: var(--spacing-xs);">Agent B – <span class="label-sm">Processing</span></li>
+        <li class="glass-card" style="padding: var(--spacing-sm);">Agent C – <span class="label-sm">Error</span></li>
+      </ul>
+    </section>
+    <section class="glass-card" style="margin-bottom: var(--spacing-lg);">
+      <h2 class="headline-sm">Command Console</h2>
+      <textarea class="glass-card" style="width:100%; height:120px; resize:none; background:var(--color-surface-variant); color:var(--color-on-surface); border:none; padding:var(--spacing-sm);" placeholder="Enter command..."></textarea>
+      <button class="btn-primary" style="margin-top: var(--spacing-sm);">Execute</button>
+    </section>
+    <nav class="bottom-nav" style="margin-top: var(--spacing-lg);">
+      <a href="/index.html">Dashboard</a>
+      <a href="/src/report.html">Report & Verify</a>
+      <a href="/src/intelligence.html">Intelligence Suite</a>
+      <a href="/src/agent-command.html" class="active">Agent Command Center</a>
+      <a href="/src/admin.html">Admin Portal</a>
+    </nav>
+  </div>
+</body>
+</html>
