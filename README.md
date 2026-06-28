@@ -31,6 +31,18 @@ It bridges the gap between citizens and government by replacing bureaucratic bot
 
 ---
 
+## 🧪 Try it Out (Test Credentials)
+
+You can explore the platform using the following test accounts:
+
+**Government Administrator Account** (Access to Agent Pipeline & Operations)
+- **Email:** `shaik@12test.com`
+- **Password:** `123456`
+
+*(To test as a Citizen, feel free to register a new account on the signup page!)*
+
+---
+
 ## ✨ Features
 
 - **🤖 Multi-Agent AI Pipeline**: An orchestrator that dynamically routes tasks between Gemini and Groq depending on quota and capabilities.
@@ -47,9 +59,22 @@ It bridges the gap between citizens and government by replacing bureaucratic bot
 
 ---
 
-## 🤖 AI Agent Architecture
+## 🏗 System Architecture
 
-Our system employs a sequential pipeline of specialized agents:
+CivicMind AI uses a decentralized, event-driven architecture designed for high availability and rapid processing. 
+
+### Data Flow
+1. **Client Layer (Vite/JS):** Citizens capture media and geolocation data. The payload is sent to the backend.
+2. **Persistence Layer (Firebase/Supabase):** Images/videos are securely uploaded to Supabase Storage. Structural metadata and relationships are synchronized in real-time using Firestore.
+3. **Multi-LLM Orchestrator:** The application dynamically routes inference tasks between **Gemini 1.5 Pro** and **Groq (Llama-3.3-70b)** based on quota limits, token performance, and vision requirements.
+
+![Architecture](docs/images/architecture.png)
+
+---
+
+## 🤖 AI Agent Pipeline
+
+Our system employs a sequential pipeline of specialized agents. Each issue passes through these agents instantly upon submission:
 
 1. **🔍 Vision Inspector**: Analyzes uploaded media to identify the core issue, assess severity, and extract relevant visual context.
 2. **🌍 Geo Intelligence**: Enriches the report with precise location data, neighborhood context, and historical hotspot analysis.
@@ -58,35 +83,32 @@ Our system employs a sequential pipeline of specialized agents:
 5. **📊 Predictive Infrastructure**: Analyzes trends to predict if this issue is indicative of larger systemic infrastructure failure.
 6. **💡 Resolution Recommendation**: Suggests immediate mitigation steps and identifies the optimal government department for dispatch.
 7. **🔔 Notification Agent**: Drafts contextual alerts for citizens and officials regarding the new issue status.
-8. **✨ AI Copilot**: A chat interface available on the dashboard for administrators and citizens to query the live civic database using natural language.
 
 ---
 
-## 🏗 System Architecture
-
-![Architecture](docs/images/architecture.png)
-
----
-
-## 📸 Screenshots
+## 📸 Platform Screenshots
 
 ### Citizen Dashboard
-![Citizen Dashboard](docs/images/citizen-dashboard.png)
+A gamified dashboard where citizens track their contributions and city-wide status.
+<img src="docs/images/citizen-dashboard.png" width="800" alt="Citizen Dashboard" />
 
-### Report Issue
-![Report Issue](docs/images/report-page.png)
+### AI-Assisted Issue Reporting
+Our intelligent report form pre-fills categories, severity, and urgency based on the uploaded image.
+<img src="docs/images/report-page.png" width="800" alt="Report Issue Form" />
 
-### Admin Dashboard
-![Admin Dashboard](docs/images/admin-dashboard.png)
+### Government Operations Dashboard
+Command center for city administrators to track critical emergencies and city intelligence.
+<img src="docs/images/admin-dashboard.png" width="800" alt="Admin Dashboard" />
 
-### AI Analysis
-![AI Analysis](docs/images/ai-analysis.png)
+### Live Agent Pipeline (Execution Timeline)
+Full transparency into the sequential multi-agent execution pipeline evaluating incoming reports.
+<img src="docs/images/ai-analysis.png" width="800" alt="Live Agent Pipeline" />
 
-### Analytics
-![Analytics](docs/images/analytics.png)
+### CivicMind AI Copilot
+Query the city's Firestore database using natural language to predict failures, track trends, or get immediate answers.
+<img src="docs/images/copilot.png" width="800" alt="AI Copilot Interface" />
 
-### Map View
-![Map](docs/images/map-view.png)
+*(Note: Additional screenshots like map views and analytics can be added in future iterations!)*
 
 ---
 
