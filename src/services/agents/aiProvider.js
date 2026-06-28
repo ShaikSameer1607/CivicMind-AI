@@ -60,7 +60,6 @@ function determineProvider(agentName, preferredProvider = 'auto') {
   if (target === 'gemini' && !gemini.isGeminiAvailable() && groq.isGroqAvailable()) target = 'groq';
   else if (target === 'groq' && !groq.isGroqAvailable() && gemini.isGeminiAvailable()) target = 'gemini';
 
-  console.log(`[DEBUG] determineProvider for agent '${agentName}': resolved to ${target}`);
   return target;
 }
 
@@ -69,18 +68,13 @@ export async function generateJSON(options) {
   let result = null;
   let fallbackTriggered = false;
 
-  console.log(`[DEBUG] generateJSON executing with provider: ${provider}, agent: ${options.agentName}`);
-  console.log(`[DEBUG] generateJSON payload:`, JSON.stringify(options.prompt || options.systemPrompt));
-
   try {
     if (provider === 'groq') {
       result = await groq.generateJSON(options);
     } else {
       result = await gemini.generateJSON(options);
     }
-    console.log(`[DEBUG] generateJSON success from ${provider}:`, JSON.stringify(result));
   } catch (err) {
-    console.error(`[DEBUG] generateJSON error from ${provider}:`, err);
     const isQuota = /quota/i.test(err.message || err.name) || err.status === 429;
     
     // Automatic Provider Switching
@@ -127,18 +121,13 @@ export async function generateText(options) {
   let result = null;
   let fallbackTriggered = false;
 
-  console.log(`[DEBUG] generateText executing with provider: ${provider}, agent: ${options.agentName}`);
-  console.log(`[DEBUG] generateText payload:`, JSON.stringify(options.prompt || options.systemPrompt));
-
   try {
     if (provider === 'groq') {
       result = await groq.generateText(options);
     } else {
       result = await gemini.generateText(options);
     }
-    console.log(`[DEBUG] generateText success from ${provider}:`, JSON.stringify(result));
   } catch (err) {
-    console.error(`[DEBUG] generateText error from ${provider}:`, err);
     const isQuota = /quota/i.test(err.message || err.name) || err.status === 429;
     
     // Automatic Provider Switching

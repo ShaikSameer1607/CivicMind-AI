@@ -4,7 +4,6 @@ const RETRY_DELAY_MS = 600;
 
 function getApiKey() {
   const key = import.meta.env.VITE_GROQ_API_KEY;
-  console.log('[DEBUG] Groq getApiKey - API Key present:', !!(typeof key === 'string' && key.trim()));
   return typeof key === 'string' && key.trim() ? key.trim() : '';
 }
 
@@ -78,8 +77,6 @@ async function groqChatCompletion(messages, model, isJson = false) {
     payload.response_format = { type: 'json_object' };
   }
 
-  console.log(`[DEBUG] Groq groqChatCompletion - sending request for model: ${model}, payload:`, JSON.stringify(payload));
-
   const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
     method: 'POST',
     headers: {
@@ -91,13 +88,11 @@ async function groqChatCompletion(messages, model, isJson = false) {
 
   if (!response.ok) {
     const errorText = await response.text();
-    console.error(`[DEBUG] Groq groqChatCompletion - HTTP Error status ${response.status}:`, errorText);
     const errorObj = { status: response.status, message: errorText };
     throw errorObj;
   }
 
   const data = await response.json();
-  console.log(`[DEBUG] Groq groqChatCompletion - success response:`, JSON.stringify(data).substring(0, 500) + '...');
   const text = data.choices?.[0]?.message?.content || '';
   const usage = data.usage || {};
 

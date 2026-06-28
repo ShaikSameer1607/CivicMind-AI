@@ -1,187 +1,215 @@
-# CivicMind AI
+<div align="center">
 
-**The AI Operating System for Smart Cities**
+# 🚀 CivicMind AI
 
-![CivicMind AI Banner](https://via.placeholder.com/1200x400/0A0A0C/7E56DA?text=CivicMind+AI+-+Smart+City+Operating+System)
+**Multi-Agent AI Powered Civic Intelligence Platform**
 
-## Project Overview:
-CivicMind AI bridges the critical gap between citizens and local government by providing real-time intelligence, automated issue classification, predictive infrastructure analysis, and community-driven verification. It empowers citizens to report civic issues seamlessly while equipping government administrators with AI-driven triage, routing, and resolution tools.
+[![Google AI](https://img.shields.io/badge/Google%20AI-Gemini-4285F4?style=for-the-badge&logo=google)](https://ai.google.dev/)
+[![Groq](https://img.shields.io/badge/Groq-Llama_3.3-f55036?style=for-the-badge&logo=meta)](https://groq.com/)
+[![Firebase](https://img.shields.io/badge/Firebase-Backend-FFCA28?style=for-the-badge&logo=firebase)](https://firebase.google.com/)
+[![Supabase](https://img.shields.io/badge/Supabase-Storage-3ECF8E?style=for-the-badge&logo=supabase)](https://supabase.com/)
+[![Vite](https://img.shields.io/badge/Vite-Build_Tool-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
+[![Cloud Run](https://img.shields.io/badge/Google_Cloud-Cloud_Run-4285F4?style=for-the-badge&logo=googlecloud)](https://cloud.google.com/run)
+[![Hackathon](https://img.shields.io/badge/Hackathon-Submission-ff69b4?style=for-the-badge)](https://devpost.com/)
 
-## Problem Statement
-Modern urban governance faces a massive backlog of civic issues (potholes, water leaks, infrastructure damage). Traditional reporting systems are slow, manual, lack transparency, and struggle to accurately categorize and route issues to the correct municipal departments.
+![CivicMind Banner](docs/images/banner.png)
 
-## Solution Overview
-CivicMind AI transforms civic action using a **Multi-LLM Orchestrator** and a **7-Agent Intelligence Pipeline**. Citizens upload images or videos of issues. The AI automatically classifies the severity, detects duplicates, assigns the correct department, and predicts future infrastructure failures. A decentralized "Community Verification" system builds trust, rewarding active citizens with Civic Reputation points.
-
----
-
-## Key Features
-- **7-Agent Intelligence Pipeline**: An autonomous multi-agent system handling vision inspection, severity assessment, category assignment, and resolution pathways.
-- **Multi-LLM Orchestrator**: Seamlessly routes AI tasks between Gemini, Grok, Groq, and a local Heuristic Fallback for maximum resiliency and speed.
-- **Geo-Intelligence & Live Maps**: Real-time Leaflet map integration for hotspot tracking and geographic clustering.
-- **Predictive Infrastructure**: AI forecasts maintenance needs based on historical data patterns.
-- **Civic Reputation Engine**: Citizens earn dynamic scores (+25 for reporting, +50 for resolution) stored securely in their profiles.
-- **Real-Time Dashboards**: Separate, tailored UI portals for Citizens (Reporters) and Government Officials (Admins).
-- **Supabase High-Speed Media**: Secure, fast image and video uploads directly bypassing Firebase limits.
+</div>
 
 ---
 
-## Architecture Diagram
+## 📖 Overview
 
-```mermaid
-graph TD
-    A[Citizen App] -->|Upload Media| B(Supabase Storage)
-    A -->|Submit Issue| C{Firestore Realtime DB}
-    C -->|Trigger| D[Multi-LLM Orchestrator]
-    D --> E(Gemini Vision)
-    D --> F(Grok Fast Inference)
-    D --> G(Groq Processing)
-    D --> H(Heuristic Engine Fallback)
-    E --> I[7-Agent Pipeline]
-    F --> I
-    G --> I
-    I -->|Update Status & Route| C
-    C -->|Realtime Sync| J[Government Dashboard]
-```
+### The Problem
+Cities worldwide face an explosion of citizen reports regarding infrastructure, safety, and sanitation. Government departments are overwhelmed with duplicate reports, unverified claims, and the manual labor of categorizing and routing issues to the correct department, leading to slow response times and frustrated citizens.
+
+### The Solution
+**CivicMind AI** is an intelligent, multi-agent platform that revolutionizes civic issue management. By deploying a pipeline of specialized AI agents (powered by Google Gemini and Groq), the platform automatically analyzes incoming reports, extracts metadata, verifies claims against community consensus, predicts infrastructure decay, and routes issues to the correct government department instantly.
+
+### Why CivicMind AI?
+It bridges the gap between citizens and government by replacing bureaucratic bottlenecks with an instant, intelligent, and transparent AI-driven workflow, empowering both city officials and civic heroes.
 
 ---
 
-## Seven-Agent AI Pipeline
-Our proprietary pipeline processes every submitted issue through seven specialized AI agents:
-1. **Vision Inspector**: Analyzes citizen photos/videos for hazards and infrastructure defects.
-2. **Issue Classification**: Categorizes the issue (e.g., Water, Roads, Waste).
-3. **Geo Intelligence**: Maps the location, assigns wards, and detects spatial hotspots.
-4. **Duplicate Detection**: Cross-references active database issues to prevent spam.
-5. **Community Verification**: Calculates trust scores based on citizen reputation.
-6. **Department Assignment**: Routes the issue to the precise government department.
-7. **Resolution Recommendation**: Suggests repair strategies to municipal engineers.
+## ✨ Features
+
+- **🤖 Multi-Agent AI Pipeline**: An orchestrator that dynamically routes tasks between Gemini and Groq depending on quota and capabilities.
+- **🧠 Vision Analysis**: Automatically identifies issue categories, severity, and context from uploaded images.
+- **📍 Geo Intelligence**: Analyzes coordinates, reverse geocodes locations, and spots spatial clusters.
+- **🔁 Duplicate Detection**: Groups similar incidents to prevent redundant dispatches.
+- **✅ Community Verification**: Scores reports based on community trust and consensus.
+- **📊 Predictive Infrastructure**: Forecasts future decay and suggests preventative maintenance.
+- **🏛 Admin Dashboard**: A comprehensive command center for government officials to manage city operations.
+- **👥 Citizen Portal**: A gamified platform where citizens report issues and earn "Civic Hero" reputation points.
+- **🗺 Interactive Maps**: Heatmaps and clustering for identifying city-wide problem hotspots.
+- **📦 Media Upload**: Secure, scalable evidence media persistence via Supabase.
+- **🔐 Firebase Authentication**: Seamless Google and Email authentication.
 
 ---
 
-## Technology Stack
-- **Frontend**: Vanilla JavaScript (ES6+), HTML5, CSS3, Vite
-- **UI/UX**: Google Stitch Premium Design System (Glassmorphism, Dark Theme)
-- **Authentication**: Firebase Authentication
-- **Database**: Firebase Cloud Firestore (NoSQL, Realtime Sync)
-- **Storage**: Supabase Storage (Blob Media Storage)
-- **Mapping**: Leaflet.js / OpenStreetMap
-- **AI Models**: Google Gemini API, xAI Grok API, Groq Cloud API
+## 🤖 AI Agent Architecture
+
+Our system employs a sequential pipeline of specialized agents:
+
+1. **🔍 Vision Inspector**: Analyzes uploaded media to identify the core issue, assess severity, and extract relevant visual context.
+2. **🌍 Geo Intelligence**: Enriches the report with precise location data, neighborhood context, and historical hotspot analysis.
+3. **📋 Duplicate Detection**: Compares the new report against recent active reports to flag potential duplicates and merge data.
+4. **✅ Community Verification**: Assigns a confidence score based on the reporter's reputation and corroborating evidence.
+5. **📊 Predictive Infrastructure**: Analyzes trends to predict if this issue is indicative of larger systemic infrastructure failure.
+6. **💡 Resolution Recommendation**: Suggests immediate mitigation steps and identifies the optimal government department for dispatch.
+7. **🔔 Notification Agent**: Drafts contextual alerts for citizens and officials regarding the new issue status.
+8. **✨ AI Copilot**: A chat interface available on the dashboard for administrators and citizens to query the live civic database using natural language.
 
 ---
 
-## Installation & Local Development Setup
+## 🏗 System Architecture
 
-### 1. Clone the repository
-```bash
-git clone https://github.com/yourusername/civicmind-ai.git
-cd civicmind-ai
-```
-
-### 2. Install dependencies
-```bash
-npm install
-```
-
-### 3. Environment Variables
-Create a `.env` file in the root directory based on `.env.example`:
-```env
-VITE_FIREBASE_API_KEY=YOUR_FIREBASE_API_KEY
-VITE_FIREBASE_AUTH_DOMAIN=YOUR_FIREBASE_AUTH_DOMAIN
-VITE_FIREBASE_PROJECT_ID=YOUR_FIREBASE_PROJECT_ID
-VITE_SUPABASE_URL=YOUR_SUPABASE_URL
-VITE_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
-VITE_GEMINI_API_KEY=YOUR_GEMINI_API_KEY
-VITE_GROK_API_KEY=YOUR_XAI_API_KEY
-VITE_GROQ_API_KEY=YOUR_GROQ_API_KEY
-VITE_DEFAULT_AI_PROVIDER=auto
-```
-
-### 4. Run the Development Server
-```bash
-npm run dev
-```
-Navigate to `http://localhost:5173`.
+![Architecture](docs/images/architecture.png)
 
 ---
 
-## Deployment Instructions
+## 📸 Screenshots
 
-To build the project for production:
-```bash
-npm run build
-```
-The optimized production files will be generated in the `dist/` directory. Deploy this directory to Firebase Hosting, Vercel, Netlify, or any static hosting provider.
+### Citizen Dashboard
+![Citizen Dashboard](docs/images/citizen-dashboard.png)
+
+### Report Issue
+![Report Issue](docs/images/report-page.png)
+
+### Admin Dashboard
+![Admin Dashboard](docs/images/admin-dashboard.png)
+
+### AI Analysis
+![AI Analysis](docs/images/ai-analysis.png)
+
+### Analytics
+![Analytics](docs/images/analytics.png)
+
+### Map View
+![Map](docs/images/map-view.png)
 
 ---
 
-## Project Folder Structure
+## 🛠 Tech Stack
+
+| Domain | Technologies |
+| :--- | :--- |
+| **Frontend** | Vanilla JS, HTML5, CSS3, Vite |
+| **Backend (BaaS)** | Firebase (Firestore, Auth), Supabase (Storage) |
+| **AI Providers** | Google Gemini (Gemini 1.5 Pro/Flash), Groq (Llama 3.3 70b) |
+| **Mapping** | Leaflet.js, OpenStreetMap |
+| **Deployment** | Docker, Google Cloud Build, Google Cloud Run |
+
+---
+
+## 📂 Project Structure
+
 ```text
-civicmind-ai/
-+-- public/                 # Static assets
-+-- src/
-¦   +-- services/
-¦   ¦   +-- agents/         # 7-Agent Pipeline & Multi-LLM Orchestrator
-¦   ¦   +-- auth.js         # Firebase Auth integration
-¦   ¦   +-- issues.js       # Firestore CRUD & Rules
-¦   ¦   +-- storage.js      # Supabase Uploads
-¦   ¦   +-- mapController.js# Leaflet map logic
-¦   +-- main.js             # Core Application, Router, & UI Rendering
-¦   +-- style.css           # Premium Google Stitch styling
-+-- index.html              # Entry point
-+-- package.json            # Dependencies & Scripts
-+-- firestore.rules         # Security Rules
-+-- README.md               # Project Documentation
+├── src/
+│   ├── services/
+│   │   ├── agents/          # Multi-agent AI logic and providers
+│   │   ├── auth.js          # Firebase Authentication
+│   │   ├── copilot.js       # AI Chatbot interface
+│   │   ├── firebase.js      # Firebase Initialization
+│   │   ├── geolocation.js   # Location & Maps utilities
+│   │   ├── issues.js        # Firestore CRUD for reports
+│   │   ├── mapController.js # Leaflet integration
+│   │   ├── storage.js       # Supabase Media Upload
+│   │   ├── system.js        # Notifications & Agent Logs
+│   │   └── ui.js            # Toast alerts & UI states
+│   ├── main.js              # Application entry point and router
+│   └── style.css            # Custom CSS and design system
+├── docs/
+│   └── images/              # README assets
+├── index.html               # Main HTML template
+├── Dockerfile               # Container definition
+├── cloudbuild.yaml          # CI/CD pipeline
+└── vite.config.js           # Vite bundler configuration
 ```
 
 ---
 
-## Demo Credentials
+## 🚀 Installation & Setup
 
-Judges and reviewers can immediately access the platform using the pre-configured accounts below:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/YourUsername/CivicMind-AI.git
+   cd CivicMind-AI
+   ```
 
-### Government / Admin (City Official Portal)
-- **Email**: `shaik@12test.com`
-- **Password**: `123456`
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-### Citizen (Public Portal)
-*You may register a brand new account from the login screen, or use the demo account below:*
-- **Email**: `testcitizen999@example.com`
-- **Password**: `123456`
+3. **Configure Environment Variables**
+   Create a `.env` file in the root directory (see Environment Variables section).
 
----
-
-## 5-Minute Demo Guide
-1. **Report an Issue**: Go to the login screen and register a new Citizen account (or use the demo).
-2. **Submit Media**: Navigate to *Report an Issue*. Upload an image of a pothole or broken streetlight.
-3. **AI Categorization**: Watch the UI update in real-time as the 7-Agent Pipeline processes the image, assigns a severity level, and routes it to a department.
-4. **Admin Review**: Log out and log back in using the **Government Admin** credentials (`shaik@12test.com`).
-5. **City Intelligence**: Navigate to the *City Intelligence* dashboard to view global heatmaps and metrics.
-6. **Resolve Issue**: Open the issue you just created and change its status to **Resolved**.
-7. **Citizen Reward**: Log back in as the Citizen and verify that the issue is closed and your **Civic Reputation Score** has automatically increased.
+4. **Run the development server**
+   ```bash
+   npm run dev
+   ```
 
 ---
 
-## Screenshots:-
+## 🔑 Environment Variables
 
-*(Placeholders for GitHub Repository)*
+To run the project locally, create a `.env` file with the following variables:
 
-| Citizen Dashboard | Government Command Center |
-| :---: | :---: |
-| ![Citizen Dashboard](https://via.placeholder.com/600x400/121214/7E56DA?text=Citizen+Dashboard) | ![Admin Dashboard](https://via.placeholder.com/600x400/121214/00D2FF?text=City+Intelligence+Center) |
+```env
+# AI Providers
+VITE_GEMINI_API_KEY=your_gemini_api_key
+VITE_GROQ_API_KEY=your_groq_api_key
+VITE_DEFAULT_AI_PROVIDER=gemini # or 'groq'
 
-| AI Copilot | Real-time Maps |
-| :---: | :---: |
-| ![AI Copilot](https://via.placeholder.com/600x400/121214/10B981?text=Multi-LLM+Copilot) | ![Maps](https://via.placeholder.com/600x400/121214/F59E0B?text=Geo-Intelligence+Maps) |
+# Supabase Storage
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+
+# Firebase (Authentication & Firestore)
+# Note: For production, we hardcoded these in firebase.js to prevent CI/CD issues, 
+# but for local dev, you can manage them via ENV.
+VITE_FIREBASE_API_KEY=your_firebase_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_firebase_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
+VITE_FIREBASE_APP_ID=your_firebase_app_id
+```
 
 ---
 
-## Future Enhancements
-- **IoT Integration**: Directly sync sensor data (water pressure, traffic cameras) into the CivicMind pipeline.
-- **Blockchain Verification**: Store high-priority community trust scores immutably.
-- **Mobile Native Apps**: React Native wrappers for iOS/Android with offline-first support.
-- **Automated Contractor Bidding**: AI automatically drafts work orders based on the Vision Agent's analysis.
+## ☁️ Deployment
+
+This project is configured for continuous deployment using **Google Cloud Build** and **Google Cloud Run**.
+
+The `cloudbuild.yaml` file automatically triggers a Docker build upon pushes to the `main` branch. It injects the environment variables securely into the container at build time and deploys the resulting image to a fully managed, scalable Cloud Run instance.
 
 ---
 
-## License
-This project is licensed under the MIT License. 
+## 🌐 Demo
+
+- **Live Demo**: [Insert Link Here]
+- **Demo Video**: [Insert Link Here]
+- **Pitch Presentation**: [Insert Link Here]
+
+---
+
+## 🔮 Future Scope
+
+- **IoT Integration**: Syncing with smart city sensors (traffic cameras, air quality monitors).
+- **Mobile App**: Releasing native iOS and Android versions using React Native.
+- **Multilingual Support**: Real-time translation of reports for diverse communities.
+- **Blockchain Verification**: Immutable, tamper-proof audit trails for government accountability.
+
+---
+
+## 👥 Team
+
+- **Shaik Sameer** - *Developer & AI Engineer*
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
