@@ -4,7 +4,7 @@
 
 ![CivicMind AI Banner](https://via.placeholder.com/1200x400/0A0A0C/7E56DA?text=CivicMind+AI+-+Smart+City+Operating+System)
 
-## Project Overview
+## Project Overview:
 CivicMind AI bridges the critical gap between citizens and local government by providing real-time intelligence, automated issue classification, predictive infrastructure analysis, and community-driven verification. It empowers citizens to report civic issues seamlessly while equipping government administrators with AI-driven triage, routing, and resolution tools.
 
 ## Problem Statement
