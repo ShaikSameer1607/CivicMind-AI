@@ -14,8 +14,12 @@ function getApiKey() {
 
 function getClient() {
   const key = getApiKey();
+  console.log('[DEBUG] Gemini getClient - API Key present:', !!key);
   if (!key) return null;
-  if (!client) client = new GoogleGenerativeAI(key);
+  if (!client) {
+    console.log('[DEBUG] Gemini getClient - initializing new client');
+    client = new GoogleGenerativeAI(key);
+  }
   return client;
 }
 
@@ -146,9 +150,11 @@ export async function generateJSON({
       if (imagePart) parts.unshift(imagePart);
 
       const apiStart = performance.now();
+      console.log(`[DEBUG] Gemini generateContent (JSON) - sending request for model: ${model}`);
       const result = await generativeModel.generateContent(parts);
       const latencyMs = Math.round(performance.now() - apiStart);
       const text = result.response.text();
+      console.log(`[DEBUG] Gemini generateContent (JSON) - raw response:`, text);
       const parsed = parseJsonResponse(text);
       validateJsonShape(parsed, requiredKeys);
 
@@ -166,6 +172,7 @@ export async function generateJSON({
       };
     } catch (err) {
       lastError = err;
+      console.error(`[DEBUG] Gemini generateContent (JSON) - HTTP Error details:`, err);
       const isQuota = err.status === 429 || /429|quota/i.test(err.message);
       if (isQuota) {
         setFallbackReason('quota_exceeded');
@@ -211,9 +218,11 @@ export async function generateText({
       });
 
       const apiStart = performance.now();
+      console.log(`[DEBUG] Gemini generateContent (Text) - sending request for model: ${model}`);
       const result = await generativeModel.generateContent(prompt);
       const latencyMs = Math.round(performance.now() - apiStart);
       const text = result.response.text();
+      console.log(`[DEBUG] Gemini generateContent (Text) - raw response:`, text);
 
       setFallbackReason(null);
       return {
@@ -228,6 +237,7 @@ export async function generateText({
       };
     } catch (err) {
       lastError = err;
+      console.error(`[DEBUG] Gemini generateContent (Text) - HTTP Error details:`, err);
       const isQuota = err.status === 429 || /429|quota/i.test(err.message);
       if (isQuota) {
         setFallbackReason('quota_exceeded');

@@ -23,10 +23,11 @@ export function getStorageInfoMessage() {
 function getSupabase() {
   if (!isStorageEnabled()) return null;
   if (!supabaseInstance) {
-    supabaseInstance = createClient(
-      import.meta.env.VITE_SUPABASE_URL,
-      import.meta.env.VITE_SUPABASE_ANON_KEY
-    );
+    const url = import.meta.env.VITE_SUPABASE_URL;
+    const key = import.meta.env.VITE_SUPABASE_ANON_KEY;
+    console.log('[DEBUG] init Supabase URL:', url ? 'Present' : 'Missing');
+    console.log('[DEBUG] init Supabase Key:', key ? 'Present' : 'Missing');
+    supabaseInstance = createClient(url, key);
   }
   return supabaseInstance;
 }
@@ -63,6 +64,8 @@ export async function uploadEvidenceFile(uid, issueId, file, mediaType = 'images
   const safeName = `${Date.now()}_${Math.random().toString(36).substring(7)}.${ext}`;
   const path = `issues/${mediaType}/${uid}/${issueId}/${safeName}`;
   
+  console.log('[DEBUG] Supabase uploading to bucket: civicmind-storage, path:', path);
+
   const { data, error } = await supabase.storage
     .from('civicmind-storage')
     .upload(path, file, {
@@ -71,14 +74,16 @@ export async function uploadEvidenceFile(uid, issueId, file, mediaType = 'images
     });
 
   if (error) {
-    console.error('Supabase upload error:', error);
+    console.error('[DEBUG] Supabase upload error:', JSON.stringify(error));
     throw new Error('Failed to upload file to Supabase: ' + error.message);
   }
+  console.log('[DEBUG] Supabase upload success, data:', JSON.stringify(data));
 
   const { data: publicUrlData } = supabase.storage
     .from('civicmind-storage')
     .getPublicUrl(path);
 
+  console.log('[DEBUG] Supabase public URL resolved:', publicUrlData?.publicUrl);
   return publicUrlData.publicUrl;
 }
 
