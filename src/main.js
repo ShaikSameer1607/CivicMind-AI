@@ -29,6 +29,13 @@ if (import.meta.env.DEV) {
   console.log('--------------------------------------------');
 }
 
+console.log("===== VITE ENV =====");
+console.log("VITE_GEMINI_API_KEY:", import.meta.env.VITE_GEMINI_API_KEY);
+console.log("VITE_GROQ_API_KEY:", import.meta.env.VITE_GROQ_API_KEY);
+console.log("VITE_SUPABASE_URL:", import.meta.env.VITE_SUPABASE_URL);
+console.log("VITE_SUPABASE_ANON_KEY:", import.meta.env.VITE_SUPABASE_ANON_KEY);
+console.log(import.meta.env);
+
 const app = document.getElementById('app');
 
 // Global State
